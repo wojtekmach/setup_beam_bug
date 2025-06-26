@@ -1,0 +1,23 @@
+name: Main
+on:
+  push:
+jobs:
+  elixir-latest:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: erlef/setup-beam@6a38171948a866c69ed72a5c19102478ec2ab81f
+        with:
+          elixir-version: "> 0"
+          otp-version: "28.0.1"
+      - run: |
+          elixir --version
+
+  otp-latest:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: erlef/setup-beam@6a38171948a866c69ed72a5c19102478ec2ab81f
+        with:
+          elixir-version: "1.18.4"
+          otp-version: "> 0"
+      - run: |
+          elixir --version
