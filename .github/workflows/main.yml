@@ -5,7 +5,7 @@ jobs:
   elixir-latest:
     runs-on: ubuntu-24.04
     steps:
-      - uses: erlef/setup-beam@6a38171948a866c69ed72a5c19102478ec2ab81f
+      - uses: erlef/setup-beam@v1
         with:
           elixir-version: "> 0"
           otp-version: "28.0.1"
@@ -15,7 +15,7 @@ jobs:
   otp-latest:
     runs-on: ubuntu-24.04
     steps:
-      - uses: erlef/setup-beam@6a38171948a866c69ed72a5c19102478ec2ab81f
+      - uses: erlef/setup-beam@v1
         with:
           elixir-version: "1.18.4"
           otp-version: "> 0"
