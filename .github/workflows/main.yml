@@ -29,7 +29,6 @@ jobs:
           - elixir-version: "> 0"
             otp-version: master
 
-    name: ${{ matrix.name }}
     steps:
       - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
         with:
