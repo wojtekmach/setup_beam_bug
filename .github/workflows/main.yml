@@ -1,92 +1,40 @@
 name: Main
 on:
   push:
+
 jobs:
-  elixir-latest:
+  test:
     runs-on: ubuntu-24.04
-    steps:
-      - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
-        with:
-          elixir-version: "> 0"
-          otp-version: "28.0.1"
-      - run: |
-          echo Elixir:
-          elixir --version
-          echo OTP:
-          elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
+    strategy:
+      matrix:
+        include:
+          - elixir-version: "> 0"
+            otp-version: "28.0.1"
 
-  elixir-1-18-4-otp-master:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
-        with:
-          elixir-version: "1.18.4"
-          otp-version: master
-      - run: |
-          echo Elixir:
-          elixir --version
-          echo OTP:
-          elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
+          - elixir-version: "1.18.4"
+            otp-version: "> 0"
 
-  elixir-main-otp-master:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
-        with:
-          elixir-version: main
-          otp-version: master
-      - run: |
-          echo Elixir:
-          elixir --version
-          echo OTP:
-          elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
+          - elixir-version: "1.18.4"
+            otp-version: master
 
-  elixir-main-otp-28-otp-master:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
-        with:
-          elixir-version: main-otp-28
-          otp-version: master
-      - run: |
-          echo Elixir:
-          elixir --version
-          echo OTP:
-          elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
+          - elixir-version: main
+            otp-version: master
 
-  elixir-1-x-y-otp-master:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
-        with:
-          elixir-version: "1.x.y"
-          otp-version: master
-      - run: |
-          echo Elixir:
-          elixir --version
-          echo OTP:
-          elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
+          - elixir-version: main-otp-28
+            otp-version: master
 
-  elixir-latest-otp-master:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
-        with:
-          elixir-version: "> 0"
-          otp-version: master
-      - run: |
-          echo Elixir:
-          elixir --version
-          echo OTP:
-          elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
+          - elixir-version: "1.x.y"
+            otp-version: master
 
-  otp-latest:
-    runs-on: ubuntu-24.04
+          - elixir-version: "> 0"
+            otp-version: master
+
+    name: ${{ matrix.name }}
     steps:
       - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
         with:
-          elixir-version: "1.18.4"
-          otp-version: "> 0"
+          elixir-version: ${{ matrix.elixir-version }}
+          otp-version: ${{ matrix.otp-version }}
       - run: |
           echo Elixir:
           elixir --version
