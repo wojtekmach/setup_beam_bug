@@ -9,8 +9,7 @@ jobs:
         with:
           elixir-version: "> 0"
           otp-version: "28.0.1"
-      - name: Versions
-        run: |
+      - run: |
           echo Elixir:
           elixir --short-version
           echo OTP:
@@ -23,8 +22,7 @@ jobs:
         with:
           elixir-version: "1.18.4"
           otp-version: "> 0"
-      - name: Versions
-        run: |
+      - run: |
           echo Elixir:
           elixir --short-version
           echo OTP:
