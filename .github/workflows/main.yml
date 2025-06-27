@@ -5,7 +5,7 @@ jobs:
   elixir-latest:
     runs-on: ubuntu-24.04
     steps:
-      - uses: erlef/setup-beam@v1
+      - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
         with:
           elixir-version: "> 0"
           otp-version: "28.0.1"
@@ -15,9 +15,19 @@ jobs:
   otp-latest:
     runs-on: ubuntu-24.04
     steps:
-      - uses: erlef/setup-beam@v1
+      - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
         with:
           elixir-version: "1.18.4"
+          otp-version: "> 0"
+      - run: |
+          elixir --version
+
+  elixir-latest-otp-latest:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
+        with:
+          elixir-version: "> 0"
           otp-version: "> 0"
       - run: |
           elixir --version
