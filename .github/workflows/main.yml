@@ -11,7 +11,7 @@ jobs:
           otp-version: "28.0.1"
       - run: |
           echo Elixir:
-          elixir --short-version
+          elixir --version
           echo OTP:
           elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
 
@@ -24,7 +24,7 @@ jobs:
           otp-version: master
       - run: |
           echo Elixir:
-          elixir --short-version
+          elixir --version
           echo OTP:
           elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
 
@@ -37,7 +37,7 @@ jobs:
           otp-version: master
       - run: |
           echo Elixir:
-          elixir --short-version
+          elixir --version
           echo OTP:
           elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
 
@@ -50,6 +50,6 @@ jobs:
           otp-version: "> 0"
       - run: |
           echo Elixir:
-          elixir --short-version
+          elixir --version
           echo OTP:
           elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
