@@ -10,7 +10,8 @@ jobs:
           elixir-version: "> 0"
           otp-version: "28.0.1"
       - run: |
-          elixir --version
+          elixir --short-version
+          elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
 
   otp-latest:
     runs-on: ubuntu-24.04
@@ -20,14 +21,5 @@ jobs:
           elixir-version: "1.18.4"
           otp-version: "> 0"
       - run: |
-          elixir --version
-
-  elixir-latest-otp-latest:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: erlef/setup-beam@fix/calculating-otp-major-for-elixir
-        with:
-          elixir-version: "> 0"
-          otp-version: "> 0"
-      - run: |
-          elixir --version
+          elixir --short-version
+          elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
