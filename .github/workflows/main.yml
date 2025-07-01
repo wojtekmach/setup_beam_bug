@@ -42,3 +42,4 @@ jobs:
           elixir --version
           echo OTP:
           elixir -e 'IO.write File.read!("#{:code.root_dir()}/releases/#{System.otp_release()}/OTP_VERSION")'
+
