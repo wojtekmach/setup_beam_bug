@@ -20,13 +20,16 @@ jobs:
           - elixir-version: main
             otp-version: master
 
+          - elixir-version: main-otp-27
+            otp-version: master
+
           - elixir-version: main-otp-28
             otp-version: master
 
           - elixir-version: "> 0"
             otp-version: master
 
-          - elixir-version: "> 0-otp-28"
+          - elixir-version: "> 0-otp-27"
             otp-version: master
 
     steps:
