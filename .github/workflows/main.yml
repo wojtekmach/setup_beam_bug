@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - elixir-version: "main"
+          - elixir-version: "main-otp-28"
             otp-version: "maint-28"
 
     steps:
