@@ -10,9 +10,10 @@ jobs:
         include:
           - elixir-version: "main-otp-28"
             otp-version: "maint-28"
+            version-type: 'strict'
 
     steps:
-      - uses: erlef/setup-beam@v1.20.1
+      - uses: erlef/setup-beam@v1
         with:
           elixir-version: ${{ matrix.elixir-version }}
           otp-version: ${{ matrix.otp-version }}
