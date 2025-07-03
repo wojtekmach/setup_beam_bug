@@ -12,7 +12,7 @@ jobs:
             otp-version: "maint-28"
 
     steps:
-      - uses: erlef/setup-beam@v1
+      - uses: erlef/setup-beam@v1.20.1
         with:
           elixir-version: ${{ matrix.elixir-version }}
           otp-version: ${{ matrix.otp-version }}
