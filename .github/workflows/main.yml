@@ -8,9 +8,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - elixir-version: "1.18.4"
+          - elixir-version: "1.18"
             otp-version: "26"
-            version-type: 'strict'
 
     steps:
       - uses: wojtekmach/setup-beam@wm-show-url
