@@ -10,12 +10,15 @@ jobs:
         include:
           - elixir-version: "1.18"
             otp-version: "26"
+            version-type: "strict"
 
     steps:
       - uses: erlef/setup-beam@wm-show-url
         with:
           elixir-version: ${{ matrix.elixir-version }}
           otp-version: ${{ matrix.otp-version }}
+          version-type: ${{ matrix.version-type }}
+
       - run: |
           echo Elixir:
           elixir --version
