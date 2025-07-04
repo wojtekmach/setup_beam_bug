@@ -8,12 +8,12 @@ jobs:
     strategy:
       matrix:
         include:
-          - elixir-version: "main-otp-28"
-            otp-version: "maint-28"
+          - elixir-version: "1.18.4"
+            otp-version: "26"
             version-type: 'strict'
 
     steps:
-      - uses: erlef/setup-beam@v1
+      - uses: erlef/setup-beam@fix/more-versioning
         with:
           elixir-version: ${{ matrix.elixir-version }}
           otp-version: ${{ matrix.otp-version }}
