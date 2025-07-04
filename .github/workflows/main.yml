@@ -13,7 +13,7 @@ jobs:
             version-type: "strict"
 
     steps:
-      - uses: erlef/setup-beam@wm-show-url
+      - uses: erlef/setup-beam@fix/more-versioning
         with:
           elixir-version: ${{ matrix.elixir-version }}
           otp-version: ${{ matrix.otp-version }}
